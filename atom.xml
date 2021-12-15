@@ -3,11 +3,11 @@
   <title>Mr.chen Blog</title>
   
   
-  <link href="https://chenguang3312.github.io/chenguang3312.github.io/atom.xml" rel="self"/>
+  <link href="https://chenguang3312.github.io/atom.xml" rel="self"/>
   
-  <link href="https://chenguang3312.github.io/chenguang3312.github.io/"/>
+  <link href="https://chenguang3312.github.io/"/>
   <updated>2021-10-26T06:06:32.000Z</updated>
-  <id>https://chenguang3312.github.io/chenguang3312.github.io/</id>
+  <id>https://chenguang3312.github.io/</id>
   
   <author>
     <name>Mr.chen</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://chenguang3312.github.io/chenguang3312.github.io/2021/12/15/hello-world/"/>
-    <id>https://chenguang3312.github.io/chenguang3312.github.io/2021/12/15/hello-world/</id>
+    <link href="https://chenguang3312.github.io/2021/12/15/hello-world/"/>
+    <id>https://chenguang3312.github.io/2021/12/15/hello-world/</id>
     <published>2021-12-15T01:46:57.931Z</published>
     <updated>2021-10-26T06:06:32.000Z</updated>
     
@@ -38,8 +38,8 @@
   
   <entry>
     <title>C++_note</title>
-    <link href="https://chenguang3312.github.io/chenguang3312.github.io/2021/11/04/C-note/"/>
-    <id>https://chenguang3312.github.io/chenguang3312.github.io/2021/11/04/C-note/</id>
+    <link href="https://chenguang3312.github.io/2021/11/04/C-note/"/>
+    <id>https://chenguang3312.github.io/2021/11/04/C-note/</id>
     <published>2021-11-04T06:07:19.000Z</published>
     <updated>2021-11-04T07:01:37.000Z</updated>
     
@@ -55,7 +55,7 @@
     
     
     
-    <category term="C++" scheme="https://chenguang3312.github.io/chenguang3312.github.io/tags/C/"/>
+    <category term="C++" scheme="https://chenguang3312.github.io/tags/C/"/>
     
   </entry>
   
