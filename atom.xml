@@ -6,7 +6,7 @@
   <link href="https://chenguang3312.github.io/atom.xml" rel="self"/>
   
   <link href="https://chenguang3312.github.io/"/>
-  <updated>2021-10-26T06:06:32.000Z</updated>
+  <updated>2021-12-24T09:05:38.539Z</updated>
   <id>https://chenguang3312.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>tools_web</title>
+    <link href="https://chenguang3312.github.io/2021/12/24/tools-web/"/>
+    <id>https://chenguang3312.github.io/2021/12/24/tools-web/</id>
+    <published>2021-12-24T09:04:11.000Z</published>
+    <updated>2021-12-24T09:05:38.539Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://blog.51cto.com/solin/1865855">将当前的Ubuntu系统封装成为可以安装（发布）的iso镜像</a><br><a href="https://help.ubuntu.com/community/LiveCDCustomization">ubuntu 官网镜像定制</a><br><a href="https://docs.orocos.org/">kdl</a><br><a href="https://hexo.io/zh-cn/docs/configuration">hexo</a><br><a href="https://butterfly.js.org/posts/4aa8abbe/#%E5%81%B4%E9%82%8A%E6%8E%92%E7%89%88">butterfly</a><br><a href="http://marxi.co/">marxi</a><br><a href="https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b11iAZjf2">ubuntu20.04 换源</a><br><a href="https://www.howtogeek.com/howto/22145/how-to-create-your-own-customized-ubuntu-live-cd/">How to Create Your Own Customized Ubuntu Live CD</a><br><a href="https://ostechnix.com/how-to-create-a-custom-ubuntu-live-iso-image-with-cubic/">How To Create A Custom Ubuntu Live ISO Image With Cubic</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="Tools" scheme="https://chenguang3312.github.io/tags/Tools/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
