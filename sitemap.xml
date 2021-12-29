@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chenguang3312.github.io/2021/12/26/hf-weather/</loc>
+    
+    <lastmod>2021-12-29</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chenguang3312.github.io/2021/12/24/tools-web/</loc>
     
     <lastmod>2021-12-24</lastmod>
@@ -39,7 +46,7 @@
 
   <url>
     <loc>https://chenguang3312.github.io/</loc>
-    <lastmod>2021-12-24</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -47,14 +54,14 @@
   
   <url>
     <loc>https://chenguang3312.github.io/tags/C/</loc>
-    <lastmod>2021-12-24</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/Tools/</loc>
-    <lastmod>2021-12-24</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
