@@ -81,6 +81,32 @@
   </entry>
   
   <entry>
+    <title>关于ONENET EDP协议在非官方开发板上的移植</title>
+    <link href="https://chenguang3312.github.io/2017/08/25/edp-transplanting/"/>
+    <id>https://chenguang3312.github.io/2017/08/25/edp-transplanting/</id>
+    <published>2017-08-25T07:37:36.000Z</published>
+    <updated>2021-12-30T08:22:41.615Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="关于ONENET-EDP协议在非官方开发板上的移植"><a href="#关于ONENET-EDP协议在非官方开发板上的移植" class="headerlink" title="关于ONENET EDP协议在非官方开发板上的移植"></a>关于ONENET EDP协议在非官方开发板上的移植</h3><blockquote><p> EDP方式接入onenet的SDK包在onenet官网论坛资料区下载，因官方例程是基于麒麟系列的开发板编写的，麒麟用的是stm32f103系列芯片，本次以f103c8t6最小系统板为本次移植目标板，理论上移植是不需要更改任何代码的，但是麒麟座用的外部晶振是12MHz的，而市场上大部分厂家生产的开发板外部晶振为8MHz。因此需要更改一些配置参数。</p></blockquote><h4 id="配置流程"><a href="#配置流程" class="headerlink" title="配置流程"></a>配置流程</h4><ul><li>1.打开下载好的源码例程，双击打开工程文件</li><li><img src="./1.png" alt="Alt text"></li><li>2.在左侧找到main文件双击打开。</li><li><img src="./2.png" alt="Alt text"></li><li>3.在main文件中找到#include&lt;stm32f10x.h&gt;</li><li><img src="./3.png" alt="Alt text"></li><li>4.单击鼠标右键选择  open document “stm32f10x.h”</li><li><img src="./4.png" alt="Alt text"></li><li>5.在stm32f10x.h 文件中找到箭头所示的位置（119行），将12000000改为8000000【将外部晶振频率配置为8MHz】</li><li><img src="./5.png" alt="Alt text"></li><li>6.在左侧工程文件栏找到  system_stm32f10x.c 双击打开.</li><li><img src="./6.png" alt="Alt text"></li><li>7.找到如图所示的位置，将倍频系数改为9倍频【外部晶振8*9=72Mhz】72Mhz是stm32f103系列芯片理论上的最大运行速度.</li><li><img src="./7.png" alt="Alt text"></li><li>8.到此为止，官方例程移植完毕。编译通过后直接下载就可以在自己的板子上运行官方例程.</li><li><img src="./8.png" alt="Alt text"></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="Onenet" scheme="https://chenguang3312.github.io/tags/Onenet/"/>
+    
+    <category term="EDP" scheme="https://chenguang3312.github.io/tags/EDP/"/>
+    
+    <category term="Stm32" scheme="https://chenguang3312.github.io/tags/Stm32/"/>
+    
+  </entry>
+  
+  <entry>
     <title>物联网管家机器人零入门设计</title>
     <link href="https://chenguang3312.github.io/2017/08/25/iot-car/"/>
     <id>https://chenguang3312.github.io/2017/08/25/iot-car/</id>
