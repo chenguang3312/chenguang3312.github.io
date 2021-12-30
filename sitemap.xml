@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chenguang3312.github.io/2017/08/26/esp8266-AT-setting/</loc>
+    
+    <lastmod>2021-12-30</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chenguang3312.github.io/2017/08/25/edp-transplanting/</loc>
     
     <lastmod>2021-12-30</lastmod>
@@ -103,6 +110,20 @@
   
   <url>
     <loc>https://chenguang3312.github.io/tags/Stm32/</loc>
+    <lastmod>2021-12-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/tags/ESP8266/</loc>
+    <lastmod>2021-12-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/tags/AT/</loc>
     <lastmod>2021-12-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
