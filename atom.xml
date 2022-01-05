@@ -103,6 +103,84 @@
   </entry>
   
   <entry>
+    <title>基于STM32F103控制系统设计</title>
+    <link href="https://chenguang3312.github.io/2018/03/06/thesis-3/"/>
+    <id>https://chenguang3312.github.io/2018/03/06/thesis-3/</id>
+    <published>2018-03-06T10:13:29.000Z</published>
+    <updated>2022-01-05T09:22:42.302Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>####2.2 基于STM32F103控制系统设计<br>&emsp;硬件层选用Stm32+esp8266框架，因控制芯片引脚丰富，可以搭载更多的传感器，满足复杂环境的控制需求。以STM32F103C8T6芯片为主控芯片，通过usart串口与乐鑫公司生产的ESP8266-01模组连接，配置STM32F103芯片的通用输入输出端口为数字量输出，数字量输入，模拟量输入模式，外接继电器模组，LED灯，温湿度传感器，OLED显示屏，独立按键，存储芯片，灰尘传感器等设备。<br><img src="./1.png" alt="Alt text"><br>#####硬件功能设计：<br>######（一）联网功能<br>&emsp;作为物联网方面的设备， 硬件通过板载WIFI模块进行联网，模块型号为 ESP8266_01，通过串口与单片机通信，接入简单方便。出厂固件支持SoC方案及二次开发，大大降低开发成本，缩短研发周期。当然，想用其它的方式联网，也可以通过IO 口进行扩展。电路原理图如下所示：<br><img src="./2.png" alt="Alt text"><br>######（二）传感器功能<br>&emsp;集成了温湿度传感器，型号为 SHT30，采用 I2C 接口，可以实时采集环境数据，上传到后端软件平台进行数据处理，以供相关功能使用，也可以通过I2C接口，扩展其它传感器。<br><img src="./3.png" alt="Alt text"><br>######（三）最小系统<br>&emsp;最小系统是STM32F103单片机能够正常运行，实现数据输入输出的最小硬件组成。使用最小系统电路方便快速搭建各种控制单元。引出芯片控制管脚，可以直接和传感器连接，快速搭建外围电路，完成硬件测试电路的构建。最小系统一般应该包括:单片机、晶振电路、复位电路。<br>&emsp;复位电路:由电容串联电阻构成, 主芯片为低电平复位，复位电路CREST端连接主芯片第7脚复位管脚，结合”电容电压不能突变”的性质,可以知道,当上电一瞬间， C2相当于通路接地，芯片自动复位，之后VDD稳定，C2相当于断路，复位端CREST一直为高电平。<br><img src="./4.png" alt="Alt text"><br>&emsp;时钟电路：主频选用12MHz晶振，时钟RTC频率选用32.768KHz．<br><img src="./5.png" alt="Alt text"><br><img src="./6.png" alt="Alt text"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="智能家居系统" scheme="https://chenguang3312.github.io/categories/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="Dueros" scheme="https://chenguang3312.github.io/tags/Dueros/"/>
+    
+    <category term="speech sounds" scheme="https://chenguang3312.github.io/tags/speech-sounds/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>硬件平台设计</title>
+    <link href="https://chenguang3312.github.io/2018/03/06/thesis-2/"/>
+    <id>https://chenguang3312.github.io/2018/03/06/thesis-2/</id>
+    <published>2018-03-06T09:16:49.000Z</published>
+    <updated>2022-01-05T09:22:44.914Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>###硬件平台设计<br>####2.1 硬件平台框架设计<br>&emsp;&emsp;硬件平台搭建可以简单的分为三大部分：控制器，外围设备，以及驱动电路。控制器是硬件电路的核心，主要工作是与外围设备进行数据通信，控制设备运行状态。外围设备通常为传感器，显示器件，特殊功能芯片。驱动电路可以理解为控制器与外围设备连接的桥梁，只有当硬件电路满足外设驱动标准，再按照特点的通信协议编写控制程序，才能实现控制器与外围设备间正常的数据通信。<br><img src="./1.png" alt="Alt text"></p><h4 id="2-1-1-控制方案"><a href="#2-1-1-控制方案" class="headerlink" title="2.1.1 控制方案"></a>2.1.1 控制方案</h4><p>&emsp;&emsp;控制器通过I2C总线与温湿度传感器，OLED显示屏，光强传感器连接，通过I2C协议读取控制。对于一些输入输出为数字量或者模拟量的外围器件，则通过控制器的通用输入输出接口与之相连。这类器件通常为MQ系列的气体传感器，光耦驱动的继电器模组，红外灰尘传感器，火焰传感器等。作为一款物联网设备，硬件层要求必须具备局域网或广域网通信的能力，常见的通信模块有乐鑫的ESP8266 WIFI模块，GPRS 移动通信模组，2.4G射频模块（lora，zigbee等）。针对于不同的控制场合，充分考虑系统成本、控制需求，在控制器的选型上进行优化，得到两种方案。</p><ul><li>方案一：使用STM32单片机作为控制器，主要优点是控制管脚多，可外接设备丰富。缺点是硬件成本相对较高，在控制点数较少的场合，会造成硬件资源浪费。</li><li>方案二：使用ESP8266系列WIFI模组作为控制芯片，ESP8266系列模组是款高度集成的WIFI SOC(片上系统)解决方案，通过编程可以同时兼顾I/O控制和wifi数据传输，适用于控制点数较少的场合，且价格便宜。缺点是可供使用的I/O引脚数量与STM32芯片相比要少的多，不能满足大规模，多控制点位场合的控制。<h4 id="2-1-2-控制器选型"><a href="#2-1-2-控制器选型" class="headerlink" title="2.1.2 控制器选型"></a>2.1.2 控制器选型</h4></li><li>（一）STM32F103C8T6<br>&emsp;STM32F103C8T6是一个32位微控制器，采用哈佛结构设计，拥有单独的数据、指令总线，使得数据访问与取指能够同时进行，极大的提升了性能。芯片内部提供了多条总线接口，并且都可以并行工作，指令总线和数据总线共享同一内存空间。为了适应复杂应用对存储空间的需求，STM32F103C8T6 提供一个可选的 MPU，而且在需要的情况下也可以使用外部的 cache。</li><li>（二）ESP8266<br>&emsp;ESP8266-12f集成了 32 位 Tensilica 处理器、有标准数字输入输出接口、天线开关、射频 balun、功率放大器、低噪放大器、过滤器和电源管理模块等，内置的 Tensilica L106 32 位 RISC 处理器，CPU 时钟速度最高可达 160 MHz，支持实时操作系统 (RTOS) 和 Wi-Fi 协议栈。 ESP8266模组是款高度集成的WIFI SOC(片上系统)解决方案，通过编程可以同时兼顾I/O控制和wifi数据传输，适用于控制点数较少的场合，且价格便宜， 具有的省电模式适用于各种低功耗应用场景，并且工作温度范围大，能够保持稳定的性能，能适应各种操作环境。<h4 id="2-1-3-传感器选型"><a href="#2-1-3-传感器选型" class="headerlink" title="2.1.3 传感器选型"></a>2.1.3 传感器选型</h4>#####（一）温湿度传感器<br>&emsp;瑞士Sensirion 数字温度传感器SHT30建立在全新和优化的CMOSens® 芯片之上，进一步提高了产品可靠性和精度规格。SHT30提供了一系列新功能，如增强信号处理、两个独特和用户可选I2C地址、一个可编程温湿度极限的报警模式，以及高达1 MHz的通信速度.<br><img src="./2.png" alt="Alt text"><br>&emsp;通过改变选择ADDR引脚的电压，实现传感器的地址改变。默认地址是ADDR连接VSS时（ 0X44），可以修改成0X45。 SHT30工作模式如下：</li><li>（1）<strong>单次数据采集模式:</strong><br>不同命令，在重复性(高，中，低）和时钟延伸(禁止，使能）方面不同，每个数据包含一个16位温度和一个16位湿度值（按此顺序）组成。<br>传输过程如下所示：<br>&emsp;STM32发出START，并发出I2C的地址（7位）+读（1）/写（0）标志位，然后等待SHT30的ACK。<br>&emsp;发出命令高8位数据，等待SHT30的ACK。<br>&emsp;发出命令低8位数据，等待SHT30的ACK。<br>&emsp;STM32发送STOP停止通信。<br>&emsp;STM32发出START，并发出I2C的地址（7位）+读（1）/写（0）标志位，然后等待SHT30的ACK。<br>&emsp;传感器将接收读头的接收，并发送两个字节的数据（温度），接着是一个字节的CRC校验。<br>&emsp;传感器发送两个字节的数据（相对湿度），然后是一个字节的CRC校验和。每发送8位必须接受到STM32回应的ACK条件传感器才会继续发送数据。如果传感器没有接收到ACK，它就不会继续发送数据。</li><li>（2）<strong>周期性数据采集模式:</strong><br>&emsp;不同命令，在重复性(高，中，低）和数据采集频率((0.5, 1, 2, 4 &amp; 10 mps ）方面不同，每个数据包含一个16位温度和一个16位湿度值（按此顺序）组成。测量数据的传输可以通过获取数据命令来启动。在读取命令获得数据之后，数据存储器被清除。<br>#####（二）照传感器<br>&emsp;BH1750FVI基于I2C通信协议的数字型光强度传感器。光强采集范围：1-65535lx，采用标准的I2C总线传输方式，BH1750读取方法：通电、设定模式、等待测量、读取数据光照强度=（读取值<em>分辨率）/（1.2</em>灵敏度）。单片机通过I2C总线向传感器发送起始信号，并向传感器发送设备地址和写信号，发送完毕，主机等待传感器应答，然后主机向从机发送内部寄存器地址，主机等待传感器应答，主机向从机发送停止，时序为：<br><img src="./3.png" alt="Alt text"></li></ul><p>&emsp; (1)发送“连续高分辨率模式”指令<br> <img src="./4.png" alt="Alt text"><br> &emsp;(2)等待第一次连续高分辨率测量（最大时间为180ms）<br> <img src="./5.png" alt="Alt text"><br>&emsp;等待完成第一次的测量（最大时间180ms），然后读取测量结果，读取BH1750的16位数据，数据为高位和低位，过程为单片机通过I2C总线向传感器发送起始信号，并向传感器发送设备地址和写信号，发送完毕，主机等待传感器应答，然后读取高位数据（15:8），并发送应答，读取高位数据（7:0），不向主机发送应答，主机停止发送信号，采集过程结束。<br>#####（三）粉尘传感器<br>&emsp;GP2Y1014AU粉尘传感器是夏普公司开发的一款光学灰尘监测传感器模块，在其中间有一个大洞，空气可以自由流过，它里面邻角位置放着红外发光二极管和光电晶体管，红外发光二极管定向发送红外，当空气中有粉尘经过坚持区域时，红外光发生漫反射，光电晶体管接收到红外光后，会使信号输出引脚电压发送变化，通过读取电压信号，从而可以计算出粉尘浓度。其属性值如下；<br>     供电电压：5-7V<br>     工作温度：-10-65℃<br>     监测最小直径：0.8μm<br>灵敏度：0.5V/（0.1mg/m3）灰尘浓度每变化0.1mg/m3，输出电压变化0.5V。<br>驱动条件：模块需要外接220uf电容，150R电阻来搭建驱动电路，电路图如下所示； LED驱动周期为10ms，LED驱动时间即脉冲宽度为0.32ms，采用时间为0.28ms，输出电压会根据单位时间通过过孔的粉尘浓度产生相应变化。<br><img src="./6.png" alt="Alt text"><br>灰尘和烟的判别方法：根据输出电平持续的时间和电平大小变化，可以推断出检出对象。通常情况下，烟是细微粒子，密度高，会扩散式的大范围漂移。而灰尘相对来说是一个个大的颗粒，密度要比烟低，会断断续续的经过灰尘传感器的检出区域。烟的检出电压表现为连续的高电压，而灰尘的检出电压表现为间断性的高电压。因此，只需读取一段时间内灰尘传感器的检出电压，即可通过电压趋势来分辨出污染程度，以及主要的污染物。<br><img src="./7.png" alt="Alt text"><br>#####（四）气体传感器<br>&emsp;气体传感器选用MQ-2系列传感器模块。MQ-2可以检测天然气、液化石油气、烟雾、酒精等，对烷烃和烟雾最敏感，模块可以输出数字信号和模拟电压，直接与单片机相连，通过调节模块上的可调电阻，可以改变输出数字信号的阀值。传感器采用二氧化锡半导体气敏材料，通过内部发热丝加热，处于200摄氏度到300摄氏度之间时，二氧化锡与空气中氧气结合，形成负离子吸附，使半导体电子密度减小，导致电阻阻值增加。晶体颗粒间界处的势垒受到烟雾浓度而变化，从而引起表面导电率变化，浓度越大，电阻越低，导电率越大，输出的模拟信号也越大。<br>#####（五）火焰传感器<br>&emsp;远红外火焰传感器模块，用于检测室内是否存在明火，探测灵敏度可旋转可调电阻来改变，对于760~1100纳米范围内的光源比较敏感，使用5v直流电源供电。可输出数字信号和模拟信号，可直接与单片机相连，实际使用过程中应尽量远离火源安装，防止高温损毁模块，且尽量避开阳光，实际测试时发现太阳光对其影响较大。<br>####2.1.4 执行机构选型<br>&emsp;本设计主要控制量为开关量，控制的设备为250v 10A以下的家用电器，所以选用继电器或继电器模组作为控制器的执行机构，继电器选用松乐SRD-05VDC-SL-C 继电器，控制端电压5v，额定电流71.4 mA，输出端可接AC 250v 10A、DC 30v 10A以下的设备。继电器是一种可控的开关器件，通常应用与二次回路，继电器主要特性是用小电流小电压控制大电流大电压，因此,用于高电压大电流负载的开关控制，起到隔离保护的作用。继电器的主要工作原理是利用电磁效应，通过给线圈通电，产生磁力吸引衔铁，使得衔铁上的动触点与静触点接触，达到开关控制的效果。<br><img src="./8.png" alt="Alt text"><br>&emsp;由于stm32，esp8266控制芯片管脚输出电压为3.3V，继电器控制电压为5V，所以需要进行电压匹配。单片机控制光耦PIN1引脚，光耦输出端通过2.2k电阻与s8050三极管基极相连，三极管串联在继电器控制回路中，通过控制三极管控制继电器的导通和关断。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="智能家居系统" scheme="https://chenguang3312.github.io/categories/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="Dueros" scheme="https://chenguang3312.github.io/tags/Dueros/"/>
+    
+    <category term="speech sounds" scheme="https://chenguang3312.github.io/tags/speech-sounds/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>智能家居系统语音交互设计方案</title>
+    <link href="https://chenguang3312.github.io/2018/03/05/thesis-1/"/>
+    <id>https://chenguang3312.github.io/2018/03/05/thesis-1/</id>
+    <published>2018-03-05T07:22:41.000Z</published>
+    <updated>2022-01-05T07:29:13.649Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>&emsp;&emsp;智能家居是一个较为复杂的控制系统，控制设备既要实现精准控制，又要做到快速响应，这就要求我们必须有个灵活的后端服务平台，来处理设备采集上传的数据，并精准快速的向设备发出控制指令。如何搭建一个高性能的后端服务平台？选用什么样的通信协议？硬件如何设计既能满足控制需求，又能做到价格便宜性能优越？这需要去不断探索研究。拟解决的主要科学及技术问题如下:</p><ul><li>（1）控制设备硬件设计<br>控制设备的硬件设计要和实际控制环境相适应，充分利用硬件资源，既要精确采集上传环境数据，又要果断完成控制动作。</li><li>（2）控制设备软件设计<br>控制设备如何采集上传数据，如何接收服务器的控制指令，怎样高效完成控制动作。这不仅要求硬件可靠，还要软件设计合理。软件层作为控制设备的灵魂，对控制设备性能起决定性作用。选用合适的通信协议是数据能够稳定传输的保障。</li><li>（3）后端服务器的搭建<br>后端服务器是整个控制系统的大脑，底层的控制设备要将所有环境数据，设备运行数据上传到服务器，服务器对数据进行分析后发送控制指令给控制设备。后端是整个控制系统的核心，要完成数据的接收与指令发送，要求后端服务器与底层控制设备统一通信协议，并设置数据加密解密算法，保证系统安全性。</li><li>（4）应用层软件功能设计<br>应用层软件的设计，直接体现出设备功能是否完善，设计是否合理。完善合理的功能，直接决定了用户体验。</li><li>（5）语音交互设计<br>语音控制是现代智能家居发展的方向，准确清晰的语音识别会极大的简化控制流程，带来不一样的控制体验。针对最新兴起Ai技术，利用开发平台对外的api接口，融合控制协议，赋予设备语音交互的能力。</li><li>（6）控制设备外观设计<br>根据实际电路板的大小，利用SolidWorks设计比较美观的外壳，利用3d打印技术完成设备外观的设计。</li><li>（7）系统性能优化，兼容三方控制协议<br>控制设备采用私有控制标准，在后端服务器上编写通信协议兼容框架，兼容第三方厂商的控制平台，实现设备消息互通，控制指令互通。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="智能家居系统" scheme="https://chenguang3312.github.io/categories/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="Dueros" scheme="https://chenguang3312.github.io/tags/Dueros/"/>
+    
+    <category term="speech sounds" scheme="https://chenguang3312.github.io/tags/speech-sounds/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ESP8266多链接配置教程</title>
     <link href="https://chenguang3312.github.io/2017/08/26/esp8266-AT-setting/"/>
     <id>https://chenguang3312.github.io/2017/08/26/esp8266-AT-setting/</id>

@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chenguang3312.github.io/2018/03/06/thesis-2/</loc>
+    
+    <lastmod>2022-01-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/2018/03/06/thesis-3/</loc>
+    
+    <lastmod>2022-01-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/2018/03/05/thesis-1/</loc>
+    
+    <lastmod>2022-01-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/categories/</loc>
+    
+    <lastmod>2022-01-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chenguang3312.github.io/2021/12/31/robotics-library/</loc>
     
     <lastmod>2021-12-31</lastmod>
@@ -74,7 +102,7 @@
 
   <url>
     <loc>https://chenguang3312.github.io/</loc>
-    <lastmod>2021-12-31</lastmod>
+    <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -82,67 +110,88 @@
   
   <url>
     <loc>https://chenguang3312.github.io/tags/C/</loc>
-    <lastmod>2021-12-31</lastmod>
+    <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/Tools/</loc>
-    <lastmod>2021-12-31</lastmod>
+    <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/IOT/</loc>
-    <lastmod>2021-12-31</lastmod>
+    <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/Onenet/</loc>
-    <lastmod>2021-12-31</lastmod>
+    <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/EDP/</loc>
-    <lastmod>2021-12-31</lastmod>
+    <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/Stm32/</loc>
-    <lastmod>2021-12-31</lastmod>
+    <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/ESP8266/</loc>
-    <lastmod>2021-12-31</lastmod>
+    <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/AT/</loc>
-    <lastmod>2021-12-31</lastmod>
+    <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/robotics-library/</loc>
-    <lastmod>2021-12-31</lastmod>
+    <lastmod>2022-01-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/tags/Dueros/</loc>
+    <lastmod>2022-01-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/tags/speech-sounds/</loc>
+    <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
 
+  
+  <url>
+    <loc>https://chenguang3312.github.io/categories/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2022-01-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
   
 </urlset>

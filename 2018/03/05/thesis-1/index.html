@@ -1,0 +1,195 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>智能家居系统语音交互设计方案 | Mr.chen Blog</title><meta name="keywords" content="Dueros,speech sounds"><meta name="author" content="Mr.chen"><meta name="copyright" content="Mr.chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="&amp;emsp;&amp;emsp;智能家居是一个较为复杂的控制系统，控制设备既要实现精准控制，又要做到快速响应，这就要求我们必须有个灵活的后端服务平台，来处理设备采集上传的数据，并精准快速的向设备发出控制指令。如何搭建一个高性能的后端服务平台？选用什么样的通信协议？硬件如何设计既能满足控制需求，又能做到价格便宜性能优越？这需要去不断探索研究。拟解决的主要科学及技术问题如下:  （1）控制设备硬件设计控制设备">
+<meta property="og:type" content="article">
+<meta property="og:title" content="智能家居系统语音交互设计方案">
+<meta property="og:url" content="https://chenguang3312.github.io/2018/03/05/thesis-1/">
+<meta property="og:site_name" content="Mr.chen Blog">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;智能家居是一个较为复杂的控制系统，控制设备既要实现精准控制，又要做到快速响应，这就要求我们必须有个灵活的后端服务平台，来处理设备采集上传的数据，并精准快速的向设备发出控制指令。如何搭建一个高性能的后端服务平台？选用什么样的通信协议？硬件如何设计既能满足控制需求，又能做到价格便宜性能优越？这需要去不断探索研究。拟解决的主要科学及技术问题如下:  （1）控制设备硬件设计控制设备">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chenguang3312.github.io/covers/thesis_1.png">
+<meta property="article:published_time" content="2018-03-05T07:22:41.000Z">
+<meta property="article:modified_time" content="2022-01-05T07:29:13.649Z">
+<meta property="article:author" content="Mr.chen">
+<meta property="article:tag" content="Dueros">
+<meta property="article:tag" content="speech sounds">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chenguang3312.github.io/covers/thesis_1.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://chenguang3312.github.io/2018/03/05/thesis-1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":false,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '智能家居系统语音交互设计方案',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-01-05 15:29:13'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Mr.chen Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./photo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/covers/thesis_1.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Mr.chen Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">智能家居系统语音交互设计方案</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2018-03-05T07:22:41.000Z" title="undefined 2018-03-05 15:22:41">2018-03-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E7%B3%BB%E7%BB%9F/">智能家居系统</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="智能家居系统语音交互设计方案"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>&emsp;&emsp;智能家居是一个较为复杂的控制系统，控制设备既要实现精准控制，又要做到快速响应，这就要求我们必须有个灵活的后端服务平台，来处理设备采集上传的数据，并精准快速的向设备发出控制指令。如何搭建一个高性能的后端服务平台？选用什么样的通信协议？硬件如何设计既能满足控制需求，又能做到价格便宜性能优越？这需要去不断探索研究。拟解决的主要科学及技术问题如下:</p>
+<ul>
+<li>（1）控制设备硬件设计<br>控制设备的硬件设计要和实际控制环境相适应，充分利用硬件资源，既要精确采集上传环境数据，又要果断完成控制动作。</li>
+<li>（2）控制设备软件设计<br>控制设备如何采集上传数据，如何接收服务器的控制指令，怎样高效完成控制动作。这不仅要求硬件可靠，还要软件设计合理。软件层作为控制设备的灵魂，对控制设备性能起决定性作用。选用合适的通信协议是数据能够稳定传输的保障。</li>
+<li>（3）后端服务器的搭建<br>后端服务器是整个控制系统的大脑，底层的控制设备要将所有环境数据，设备运行数据上传到服务器，服务器对数据进行分析后发送控制指令给控制设备。后端是整个控制系统的核心，要完成数据的接收与指令发送，要求后端服务器与底层控制设备统一通信协议，并设置数据加密解密算法，保证系统安全性。</li>
+<li>（4）应用层软件功能设计<br>应用层软件的设计，直接体现出设备功能是否完善，设计是否合理。完善合理的功能，直接决定了用户体验。</li>
+<li>（5）语音交互设计<br>语音控制是现代智能家居发展的方向，准确清晰的语音识别会极大的简化控制流程，带来不一样的控制体验。针对最新兴起Ai技术，利用开发平台对外的api接口，融合控制协议，赋予设备语音交互的能力。</li>
+<li>（6）控制设备外观设计<br>根据实际电路板的大小，利用SolidWorks设计比较美观的外壳，利用3d打印技术完成设备外观的设计。</li>
+<li>（7）系统性能优化，兼容三方控制协议<br>控制设备采用私有控制标准，在后端服务器上编写通信协议兼容框架，兼容第三方厂商的控制平台，实现设备消息互通，控制指令互通。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Mr.chen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chenguang3312.github.io/2018/03/05/thesis-1/">https://chenguang3312.github.io/2018/03/05/thesis-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chenguang3312.github.io" target="_blank">Mr.chen Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Dueros/">Dueros</a><a class="post-meta__tags" href="/tags/speech-sounds/">speech sounds</a></div><div class="post_share"><div class="social-share" data-image="/covers/thesis_1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2018/03/06/thesis-2/"><img class="prev-cover" src="/covers/thesis_2.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">硬件平台设计</div></div></a></div><div class="next-post pull-right"><a href="/2017/08/26/esp8266-AT-setting/"><img class="next-cover" src="/covers/esp8266_AT_setting.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">ESP8266多链接配置教程</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2018/03/06/thesis-2/" title="硬件平台设计"><img class="cover" src="/covers/thesis_2.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-03-06</div><div class="title">硬件平台设计</div></div></a></div><div><a href="/2018/03/06/thesis-3/" title="基于STM32F103控制系统设计"><img class="cover" src="/covers/thesis_3.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-03-06</div><div class="title">基于STM32F103控制系统设计</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./photo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Mr.chen</div><div class="author-info__description">从事机器人自动化系统集成与研发，记录开发过程中所看、所学、所感。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="/794407343" target="_blank" title="QQ：794407343"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:chenguang3312@126.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/Netmiss" target="_blank" title="闲鱼"><i class="fa fa-address-card"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/12/31/robotics-library/" title="Rl库开发笔记(Q&amp;A)"><img src="/covers/robotics_library.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rl库开发笔记(Q&amp;A)"/></a><div class="content"><a class="title" href="/2021/12/31/robotics-library/" title="Rl库开发笔记(Q&amp;A)">Rl库开发笔记(Q&amp;A)</a><time datetime="2021-12-31T07:46:10.000Z" title="发表于 2021-12-31 15:46:10">2021-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/26/hf-weather/" title="和风天气API接口调用(日出日落信息)"><img src="/covers/hf_weather.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="和风天气API接口调用(日出日落信息)"/></a><div class="content"><a class="title" href="/2021/12/26/hf-weather/" title="和风天气API接口调用(日出日落信息)">和风天气API接口调用(日出日落信息)</a><time datetime="2021-12-26T05:50:38.000Z" title="发表于 2021-12-26 13:50:38">2021-12-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/24/tools-web/" title="tools_web"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="tools_web"/></a><div class="content"><a class="title" href="/2021/12/24/tools-web/" title="tools_web">tools_web</a><time datetime="2021-12-24T09:04:11.000Z" title="发表于 2021-12-24 17:04:11">2021-12-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/11/04/C-note/" title="C++_note"><img src="/covers/c_code.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++_note"/></a><div class="content"><a class="title" href="/2019/11/04/C-note/" title="C++_note">C++_note</a><time datetime="2019-11-04T06:07:19.000Z" title="发表于 2019-11-04 14:07:19">2019-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2018/03/06/thesis-3/" title="基于STM32F103控制系统设计"><img src="/covers/thesis_3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基于STM32F103控制系统设计"/></a><div class="content"><a class="title" href="/2018/03/06/thesis-3/" title="基于STM32F103控制系统设计">基于STM32F103控制系统设计</a><time datetime="2018-03-06T10:13:29.000Z" title="发表于 2018-03-06 18:13:29">2018-03-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Mr.chen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '1vrkdIEeD7CRzxslOiurgIEH-gzGzoHsz',
+      appKey: 'hHzoAhpAvcUTW6FAOTHiMcy4',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

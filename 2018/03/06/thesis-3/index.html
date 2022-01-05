@@ -1,0 +1,186 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>基于STM32F103控制系统设计 | Mr.chen Blog</title><meta name="keywords" content="Dueros,speech sounds"><meta name="author" content="Mr.chen"><meta name="copyright" content="Mr.chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="####2.2 基于STM32F103控制系统设计&amp;emsp;硬件层选用Stm32+esp8266框架，因控制芯片引脚丰富，可以搭载更多的传感器，满足复杂环境的控制需求。以STM32F103C8T6芯片为主控芯片，通过usart串口与乐鑫公司生产的ESP8266-01模组连接，配置STM32F103芯片的通用输入输出端口为数字量输出，数字量输入，模拟量输入模式，外接继电器模组，LED灯，温湿度传感">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于STM32F103控制系统设计">
+<meta property="og:url" content="https://chenguang3312.github.io/2018/03/06/thesis-3/">
+<meta property="og:site_name" content="Mr.chen Blog">
+<meta property="og:description" content="####2.2 基于STM32F103控制系统设计&amp;emsp;硬件层选用Stm32+esp8266框架，因控制芯片引脚丰富，可以搭载更多的传感器，满足复杂环境的控制需求。以STM32F103C8T6芯片为主控芯片，通过usart串口与乐鑫公司生产的ESP8266-01模组连接，配置STM32F103芯片的通用输入输出端口为数字量输出，数字量输入，模拟量输入模式，外接继电器模组，LED灯，温湿度传感">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chenguang3312.github.io/covers/thesis_3.png">
+<meta property="article:published_time" content="2018-03-06T10:13:29.000Z">
+<meta property="article:modified_time" content="2022-01-05T09:22:42.302Z">
+<meta property="article:author" content="Mr.chen">
+<meta property="article:tag" content="Dueros">
+<meta property="article:tag" content="speech sounds">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chenguang3312.github.io/covers/thesis_3.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://chenguang3312.github.io/2018/03/06/thesis-3/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":false,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '基于STM32F103控制系统设计',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-01-05 17:22:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Mr.chen Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./photo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/covers/thesis_3.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Mr.chen Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">基于STM32F103控制系统设计</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2018-03-06T10:13:29.000Z" title="undefined 2018-03-06 18:13:29">2018-03-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E7%B3%BB%E7%BB%9F/">智能家居系统</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="基于STM32F103控制系统设计"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>####2.2 基于STM32F103控制系统设计<br>&emsp;硬件层选用Stm32+esp8266框架，因控制芯片引脚丰富，可以搭载更多的传感器，满足复杂环境的控制需求。以STM32F103C8T6芯片为主控芯片，通过usart串口与乐鑫公司生产的ESP8266-01模组连接，配置STM32F103芯片的通用输入输出端口为数字量输出，数字量输入，模拟量输入模式，外接继电器模组，LED灯，温湿度传感器，OLED显示屏，独立按键，存储芯片，灰尘传感器等设备。<br><img src="./1.png" alt="Alt text"><br>#####硬件功能设计：<br>######（一）联网功能<br>&emsp;作为物联网方面的设备， 硬件通过板载WIFI模块进行联网，模块型号为 ESP8266_01，通过串口与单片机通信，接入简单方便。出厂固件支持SoC方案及二次开发，大大降低开发成本，缩短研发周期。当然，想用其它的方式联网，也可以通过IO 口进行扩展。电路原理图如下所示：<br><img src="./2.png" alt="Alt text"><br>######（二）传感器功能<br>&emsp;集成了温湿度传感器，型号为 SHT30，采用 I2C 接口，可以实时采集环境数据，上传到后端软件平台进行数据处理，以供相关功能使用，也可以通过I2C接口，扩展其它传感器。<br><img src="./3.png" alt="Alt text"><br>######（三）最小系统<br>&emsp;最小系统是STM32F103单片机能够正常运行，实现数据输入输出的最小硬件组成。使用最小系统电路方便快速搭建各种控制单元。引出芯片控制管脚，可以直接和传感器连接，快速搭建外围电路，完成硬件测试电路的构建。最小系统一般应该包括:单片机、晶振电路、复位电路。<br>&emsp;复位电路:由电容串联电阻构成, 主芯片为低电平复位，复位电路CREST端连接主芯片第7脚复位管脚，结合”电容电压不能突变”的性质,可以知道,当上电一瞬间， C2相当于通路接地，芯片自动复位，之后VDD稳定，C2相当于断路，复位端CREST一直为高电平。<br><img src="./4.png" alt="Alt text"><br>&emsp;时钟电路：主频选用12MHz晶振，时钟RTC频率选用32.768KHz．<br><img src="./5.png" alt="Alt text"><br><img src="./6.png" alt="Alt text"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Mr.chen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chenguang3312.github.io/2018/03/06/thesis-3/">https://chenguang3312.github.io/2018/03/06/thesis-3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chenguang3312.github.io" target="_blank">Mr.chen Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Dueros/">Dueros</a><a class="post-meta__tags" href="/tags/speech-sounds/">speech sounds</a></div><div class="post_share"><div class="social-share" data-image="/covers/thesis_3.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/11/04/C-note/"><img class="prev-cover" src="/covers/c_code.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">C++_note</div></div></a></div><div class="next-post pull-right"><a href="/2018/03/06/thesis-2/"><img class="next-cover" src="/covers/thesis_2.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">硬件平台设计</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2018/03/05/thesis-1/" title="智能家居系统语音交互设计方案"><img class="cover" src="/covers/thesis_1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-03-05</div><div class="title">智能家居系统语音交互设计方案</div></div></a></div><div><a href="/2018/03/06/thesis-2/" title="硬件平台设计"><img class="cover" src="/covers/thesis_2.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-03-06</div><div class="title">硬件平台设计</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./photo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Mr.chen</div><div class="author-info__description">从事机器人自动化系统集成与研发，记录开发过程中所看、所学、所感。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="/794407343" target="_blank" title="QQ：794407343"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:chenguang3312@126.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/Netmiss" target="_blank" title="闲鱼"><i class="fa fa-address-card"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/12/31/robotics-library/" title="Rl库开发笔记(Q&amp;A)"><img src="/covers/robotics_library.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rl库开发笔记(Q&amp;A)"/></a><div class="content"><a class="title" href="/2021/12/31/robotics-library/" title="Rl库开发笔记(Q&amp;A)">Rl库开发笔记(Q&amp;A)</a><time datetime="2021-12-31T07:46:10.000Z" title="发表于 2021-12-31 15:46:10">2021-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/26/hf-weather/" title="和风天气API接口调用(日出日落信息)"><img src="/covers/hf_weather.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="和风天气API接口调用(日出日落信息)"/></a><div class="content"><a class="title" href="/2021/12/26/hf-weather/" title="和风天气API接口调用(日出日落信息)">和风天气API接口调用(日出日落信息)</a><time datetime="2021-12-26T05:50:38.000Z" title="发表于 2021-12-26 13:50:38">2021-12-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/24/tools-web/" title="tools_web"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="tools_web"/></a><div class="content"><a class="title" href="/2021/12/24/tools-web/" title="tools_web">tools_web</a><time datetime="2021-12-24T09:04:11.000Z" title="发表于 2021-12-24 17:04:11">2021-12-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/11/04/C-note/" title="C++_note"><img src="/covers/c_code.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++_note"/></a><div class="content"><a class="title" href="/2019/11/04/C-note/" title="C++_note">C++_note</a><time datetime="2019-11-04T06:07:19.000Z" title="发表于 2019-11-04 14:07:19">2019-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2018/03/06/thesis-3/" title="基于STM32F103控制系统设计"><img src="/covers/thesis_3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基于STM32F103控制系统设计"/></a><div class="content"><a class="title" href="/2018/03/06/thesis-3/" title="基于STM32F103控制系统设计">基于STM32F103控制系统设计</a><time datetime="2018-03-06T10:13:29.000Z" title="发表于 2018-03-06 18:13:29">2018-03-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Mr.chen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '1vrkdIEeD7CRzxslOiurgIEH-gzGzoHsz',
+      appKey: 'hHzoAhpAvcUTW6FAOTHiMcy4',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
