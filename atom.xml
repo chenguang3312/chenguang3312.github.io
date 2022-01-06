@@ -129,11 +129,11 @@
   </entry>
   
   <entry>
-    <title>thesis-9-2</title>
+    <title>7.2后端服务器测试</title>
     <link href="https://chenguang3312.github.io/2019/04/22/thesis-9-2/"/>
     <id>https://chenguang3312.github.io/2019/04/22/thesis-9-2/</id>
     <published>2019-04-22T12:17:15.000Z</published>
-    <updated>2022-01-06T08:12:49.972Z</updated>
+    <updated>2022-01-06T08:17:03.206Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="7-2后端服务器测试"><a href="#7-2后端服务器测试" class="headerlink" title="7.2后端服务器测试"></a>7.2后端服务器测试</h4><p>&emsp;后端服务器测试了TCP服务器、MQTT服务器、WEB服务器的连接状况，TCP、MQTT服务器作为设备终端枢纽，主要负责数据的接收存储、指令下达。web服务器则负责将数据库中的数据读取并通过前端页面进行展示。<br><img src="./1.png" alt="Alt text"><br><img src="./2.png" alt="Alt text"><br><img src="./3.png" alt="Alt text"><br>测试结果：<br>&emsp;设备服务器可以接收到来自设备传输的数据，并存入数据库，nginx、uwsgi可以快速处理浏览器请求，各服务器功能正常，且满足预期设计需求。但由于所购买的云服务器是学生版，系统配置较低、带宽不够，受条件因素限制，所以在压力测试时表现不好。</p>]]></content>
     
@@ -181,11 +181,11 @@
   </entry>
   
   <entry>
-    <title>6.4Dueros智能家居商用接口对接</title>
+    <title>6.4 Dueros智能家居商用接口对接</title>
     <link href="https://chenguang3312.github.io/2019/03/27/thesis-8-4/"/>
     <id>https://chenguang3312.github.io/2019/03/27/thesis-8-4/</id>
     <published>2019-03-27T04:14:53.000Z</published>
-    <updated>2022-01-06T08:08:13.619Z</updated>
+    <updated>2022-01-06T08:17:33.289Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="6-4Dueros智能家居商用接口对接"><a href="#6-4Dueros智能家居商用接口对接" class="headerlink" title="6.4Dueros智能家居商用接口对接"></a>6.4Dueros智能家居商用接口对接</h4><p>&emsp;设计最初的目标是在以个人现有的知识水平为基础，尽可能的使所设计产品趋近于商用级别。Dueros官方考虑到智能家居设备控制在实际生活中会存在一些安全隐患，所以针对智能家居设备规定了一套标准的控制协议来确保设备控制的安全性，且对申请上线的设备有着严格的审核，需要把样机邮寄到总部进行测试，只有测试通过的产品才能被正式授权。当然本次设计制作的硬件，仅完成了商用接口协议的对接，并没有送审授权，所以也只能被个人使用。<br><img src="./1.png" alt="Alt text"><br>&emsp;dueros的智能家居其实从服务器角度看，也属于技能范畴，它与自定义技能的区别就是，智能家居技能不需要处理逻辑对话的服务器，因此智能家居技能不可以自定义问答内容。<br>智能家居技能是通过百度出品智能音箱进行语言交互控制的，个人搭建的交互终端不开放智能家居权限，当然如果你是厂商，需要赋予自己产品语言交互的能力，则需要通过商业合作的方式获取权限。需要注意的是智能家居技能需要一个oauth2.0授权服务器进行授权，这个基于oauth2.0协议的授权服务器需要我们自己来搭建的。<br>对于oauth2.0授权非专业的人事可能不太了解，但在生活中绝对使用过。最常见的就是访问一个网站，网站可以使用第三方账号进行登陆。以CSDN网站为例，简单介绍下oauth授权过程，以便对接下来的智能家居授权有个深入理解。<br><img src="./2.png" alt="Alt text"><br>&emsp;我们在CSDN首页点击登陆时，假如选用第三方QQ登陆，浏览器会给CSDN网站发送一个授权的请求，这时CSDN网站会返回一个重定向的地址，这里重定向的地址就是QQ授权服务器的地址，接着浏览器将自动访问这个地址，请求QQ授权服务器授权。QQ授权服务器收到浏览器的授权请求后，会返回一个code码，也就是授权码。浏览器接着携带着授权码再向CSDN发起请求，CSDN第二次收到请求后，会解析提取请求中携带的授权码，并通过授权码向QQ授权服务器发起请求，换取token令牌，QQ授权服务器验证授权码有效后，会返回token令牌给CSDN，CSDN拿到token令牌后，会再次请求QQ授权服务器，用token令牌换取用户信息，只有QQ授权服务器验证token正确后，会返回用户信息给CSDN，CSDN拿到用户信息后，经过查找、筛选、读取等处理，将用户对应的数据渲染到页面上，并将渲染后的页面返回给浏览器。此时就达到了第三方账号授权登陆目的。<br>对于智能家居技能来说，在创建技能时需要配置oauth2.0授权服务器,并将服务器地址填入技能配置项内，配置完成后dueros服务器会自动去请求ouath2.0授权服务器，通过一系列的请求应答，获取到token令牌。在每次通过智能音箱下达语音控制指令时，dueros服务器会携带token令牌去请求设备云，设备云需要根据智能家居协议进行适配，才可以实现控制。协议包括了各种常用的家电，针对不同的控制电器也有不同的控制标准，如灯类除控制开关外，还有调色、调光的接口，空调有调温、模式切换、定时开关等接口。设备云在设计时，必须按协议正确且及时的回复应控制结果，dueros服务器才会根据控制结果，使智能音箱做出不同的回应。除此之外，设备云还需要对dueros请求携带的token令牌做校验，设定token令牌的过期时间，只有严格遵循这些规则，才能使智能家居设备和音箱正常交互，保障控制系统稳定运行。</p>]]></content>
     
@@ -233,11 +233,11 @@
   </entry>
   
   <entry>
-    <title>thesis-8-2</title>
+    <title>6.2 语音识别终端搭建</title>
     <link href="https://chenguang3312.github.io/2019/02/16/thesis-8-2/"/>
     <id>https://chenguang3312.github.io/2019/02/16/thesis-8-2/</id>
     <published>2019-02-16T12:29:04.000Z</published>
-    <updated>2022-01-06T08:00:21.722Z</updated>
+    <updated>2022-01-06T08:24:39.779Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="6-2-语音识别终端搭建"><a href="#6-2-语音识别终端搭建" class="headerlink" title="6.2 语音识别终端搭建"></a>6.2 语音识别终端搭建</h4><p>&emsp;选用PS3 eye摄像头进行拾音，PS3 eye摄像头内置4个拾音麦克风，但并非专用的远场设别麦克风整列板，所以降噪处理的效果不太理想。当然，也有一些表现优秀的且适合树莓派的麦克风整列板，比如ReSpeaker 系列2mic、4mic、6mic，硬件上集成专用的音频处理芯片，配合语音算法，实现波束成形、噪声抑制、混响消除、回声消除等功能。但是考虑到专用麦克风整列板价格昂贵，文档资料较少，二次开发难度大，遂选用PS3 eye代替，PS3 eye使用USB直接与树莓派连接，不仅可以输出音频信号，还可以输出图像信号，且价格便宜。树莓派选用3b作为开发平台，使用16G的内存卡烧录最新的树莓派系统，作为树莓派启动盘。硬件一切准备工作就绪后，我们将开始下载安装dueros 基于Python语音开发的软件包，具体步骤如下：</p><ul><li>1.因涉及修改系统文件，所以直接切换到root用户下操作<br>  su – root</li><li>2.在用户根目录下下载安装软件包，切换到用户根目录<br>  cd  ~/</li><li>3.使用git命令，到github上下载软件包<br>  git clone <a href="https://github.com/MyDuerOS/DuerOS-Python-Client.git">https://github.com/MyDuerOS/DuerOS-Python-Client.git</a></li><li>4.登陆dueros官网设备控制台，创建设备，配置授权地址。</li><li>5.在树莓派端进入DuerOS-Python-Clinent/app目录<br> cd DuerOS-Python-Clinent/app</li><li>6.编辑当前目录的auth.py文件<br>  vi auth.py</li><li>7.将开发者信息替换为，注册设备的信息。<br> CLIENT_ID=“xxxx”<br> CLIENT_SECRET=“xxxx”</li><li>8.返回上一层目录，启动授权文件<br>cd /home/pi/DuerOS-Python-Client/<br>./suth.sh</li><li>9.打开浏览器，输入授权服务地址<br> <a href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a></li><li>10.在授权页面登陆百度账号完成授权</li><li>11.运行语音服务器<br> ./wakeup_trigger_start.sh<br>&emsp;到此，树莓派3b语音交互的终端就搭建完成了，启动语音服务后，即可与树莓派正常交谈对话，也可以点歌，控制音乐播放暂停。但现在交互终端只相当于一款人工智能音箱，要想通过树莓派控制物联网设备，还需要部署用于逻辑处理对话的云服务器。<br><img src="./1.png" alt="Alt text"></li></ul>]]></content>
     
