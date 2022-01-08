@@ -13,15 +13,7 @@
       
       <categories>
           
-          <category> API </category>
-          
-          <category> 气象数据 </category>
-          
-          <category> 天文数据 </category>
-          
-          <category> IP获取 </category>
-          
-          <category> 定位 </category>
+          <category> Technology </category>
           
       </categories>
       
@@ -35,6 +27,31 @@
             <tag> IP获取 </tag>
             
             <tag> 定位 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>记录最近一次博客迁移之(Vercel)</title>
+      <link href="/2022/01/03/vercel/"/>
+      <url>/2022/01/03/vercel/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="记录最近一次博客迁移之-Vercel"><a href="#记录最近一次博客迁移之-Vercel" class="headerlink" title="记录最近一次博客迁移之(Vercel)"></a>记录最近一次博客迁移之(Vercel)</h3><blockquote><p>最初博客部署在云端，用Django做了整套网页，大概是那会因为特殊原因(学校经费充裕，自己又在学前端，又菜又爱折腾)，连前后端一起搞了。毕业后参加工作，django维护成本太高，发个帖子部署一堆，费力不讨好。又因为懒得不行，博客更新闲置了。21年偶尔机会了解到hexo，静态的博客框架，正好适合我，于是就逐渐将博文迁移到Hexo上，之前自己做完全写在html里，也没用markdown导致迁移很是费力。21年也逐渐停掉了云，域名，hexo静态网页以仓库形式托管在github.io上，但由于github访问速度受到限制，决定再次映射到Vercel(也是不久刚了解到)。</p></blockquote><p>&emsp;Vercel 解决最根本的问题是可以关联github仓库，可自动化监测git状态，并触发自动部署。可以关联自己的域名，也可以使用Vercel提供的域名(速度还挺快)。<br><img src="./1.png" alt="Alt text"><br>&emsp;Vercel 登陆可以使用github直接授权登陆，无需注册也很方便。<br><img src="./2.png" alt="Alt text"><br>&emsp;在项目中添加github账号，即可扫描到github所有仓库，添加部署即可。<br><img src="./3.png" alt="Alt text"><br>&emsp;需要设置下项目名称，类型可选，点击并应用更改，Vercel将自动检测并完成部署。<br><img src="./4.png" alt="Alt text"><br>&emsp;在项目setting中可以设置域名，Vercel生成的就挺快的，省了域名的钱。美滋滋～～</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Technology </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vercel </tag>
             
         </tags>
       
