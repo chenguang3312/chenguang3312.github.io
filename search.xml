@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>使用说明</title>
+      <link href="/2022/07/15/light-usr-book/"/>
+      <url>/2022/07/15/light-usr-book/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><blockquote><p>小夜灯需要接入网路后才能在苹果<strong>“家庭”</strong>中导入使用，配置前请确保以及具备配置使用环境。</p></blockquote><h5 id="使用环境："><a href="#使用环境：" class="headerlink" title="使用环境："></a>使用环境：</h5><ul><li> 1.具备<strong>2.4G 无线网络</strong>(小夜灯只能连接2.4G频段无线网)。</li><li> 2.有一台苹果设备作为控制中枢（ipad/iPhone）。</li></ul><hr><h4 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤:"></a>配置步骤:</h4><ol><li><p>将设备接入电源，小夜灯通电后进行自检，绿色常亮。<br><img src="./1.jpg" alt="Alt text"></p></li><li><p>首次使用（或wifi变更）需要重置网络，即在接通电源后绿灯亮起时长按壳体正面按钮，等待绿色灯熄灭，红色灯亮起时松开按钮。【后续启动会自动识别连接已配置的网络，只在网络异常时执行此操作】<br><img src="./2.jpg" alt="Alt text"></p><blockquote><p> <strong>注：</strong>后续使用过程中发现出现<strong>“绿色灯常亮-&gt;绿色灯熄灭-&gt;粉红色灯闪烁3次-&gt;绿色常亮”</strong>这种情况时，表面网络也存在问题，需要进行<strong>重置网络配置。</strong><img src="./3.jpg" alt="Alt text"></p></blockquote></li><li><p>红色灯亮起时松开长按的按钮，打开ipad/iPhone手机网络，连接名为”HK”的wifi热点。<br><img src="./4.jpg" alt="Alt text"><br><img src="./5.jpg" alt="Alt text"></p></li><li><p>连接”HK”热点后，会自动跳转到wifi配置页面。<br><img src="./6.jpg" alt="Alt text"><br>点击配置wifi，选择你家里的wifi，并配置密码。<em><strong>（必须是2.4G wifi）</strong></em><br><img src="./7.jpg" alt="Alt text"><br><img src="./8.jpg" alt="Alt text"></p></li><li><p>点击保存等待wifi配置（正常配置需要10s~90s），若配置成功，红色灯会转变为蓝色，否则尝试重复步骤4 或拔掉电源重启启动配置。<br><img src="./9.jpg" alt="Alt text"></p></li><li><p>（首次使用或“家庭”变更需要重置）蓝色灯亮起时，小夜灯等待是否重置<strong>苹果家庭</strong>设备注册信息，若<strong>苹果家庭</strong>存在家庭移除变更，或者想更改小夜灯绑定不同“家庭”时，需要进行“家庭”重置。方法长按正面按钮，知道蓝色灯熄灭。<br><img src="./9.jpg" alt="Alt text"></p></li><li><p>蓝色灯熄灭后，打开ipad/iPhone “家庭” 应用，创建“我的家” 家庭场景，在“我的家”中添加设备。<br><img src="./10.jpg" alt="Alt text"><br>选择扫描出来的设备<br><img src="./11.jpg" alt="Alt text"><br>点击任然添加<br><img src="./12.jpg" alt="Alt text"><br>输入配对密码全为“1”<br><img src="./13.jpg" alt="Alt text"><br>等待配置完成（若是配置失败，重复步骤6或者断电重新启动，重新启动可跳过wifi配置），更具喜好随性设置下。<br><img src="./14.jpg" alt="Alt text"><br><img src="./15.jpg" alt="Alt text"><br><img src="./16.jpg" alt="Alt text"><br><img src="./17.jpg" alt="Alt text"></p></li><li><p>配置完成后，就可以在家庭应用中控制并使用小夜灯了<br><img src="./18.jpg" alt="Alt text"><br><img src="./19.jpg" alt="Alt text"></p></li><li><p>可设置写按钮开关自动化的操作。<br><img src="./20.jpg" alt="Alt text"></p></li><li><p>具体苹果家庭中场景自动化或者一些好玩实用的功能可以自己摸索，小夜灯可以作为自动化场景中控制对象和被控对象进行使用。一些好玩的功能比如：日出关灯，日落亮灯，离家关灯，回家亮灯等等…</p></li></ol><hr>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> DIY Homekit </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>相知开始</title>
       <link href="/2022/07/13/my-xiangzhistart/"/>
       <url>/2022/07/13/my-xiangzhistart/</url>
