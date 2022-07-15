@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chenguang3312.github.io/2022/07/14/linux-preempt/</loc>
+    
+    <lastmod>2022-07-15</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chenguang3312.github.io/2022/07/15/light-usr-book/</loc>
     
     <lastmod>2022-07-15</lastmod>
@@ -430,6 +437,20 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://chenguang3312.github.io/tags/linux-RT/</loc>
+    <lastmod>2022-07-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/tags/preempt/</loc>
+    <lastmod>2022-07-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
@@ -455,6 +476,13 @@
   
   <url>
     <loc>https://chenguang3312.github.io/categories/Technology/</loc>
+    <lastmod>2022-07-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/categories/%E5%AE%9E%E6%97%B6%E5%86%85%E6%A0%B8/</loc>
     <lastmod>2022-07-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
