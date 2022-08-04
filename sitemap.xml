@@ -23,13 +23,6 @@
   </url>
   
   <url>
-    <loc>https://chenguang3312.github.io/2022/07/13/my-xiangzhistart/</loc>
-    
-    <lastmod>2022-07-13</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://chenguang3312.github.io/hexo_1/%E4%BB%8E%E7%9B%B8%E7%9F%A5%E5%BC%80%E5%A7%8B.html</loc>
     
     <lastmod>2022-01-16</lastmod>
@@ -291,176 +284,169 @@
 
   <url>
     <loc>https://chenguang3312.github.io/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://chenguang3312.github.io/tags/C/</loc>
-    <lastmod>2022-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chenguang3312.github.io/tags/Tools/</loc>
-    <lastmod>2022-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chenguang3312.github.io/tags/IOT/</loc>
-    <lastmod>2022-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://chenguang3312.github.io/tags/Onenet/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/EDP/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/Stm32/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/ESP8266/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/AT/</loc>
-    <lastmod>2022-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chenguang3312.github.io/tags/robotics-library/</loc>
-    <lastmod>2022-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chenguang3312.github.io/tags/Dueros/</loc>
-    <lastmod>2022-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chenguang3312.github.io/tags/speech-sounds/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/Ethercat/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/Soem/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/Servo/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/%E5%92%8C%E9%A3%8E%E5%A4%A9%E6%B0%94/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/API/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/IP%E8%8E%B7%E5%8F%96/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/%E5%AE%9A%E4%BD%8D/</loc>
-    <lastmod>2022-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chenguang3312.github.io/tags/Vercel/</loc>
-    <lastmod>2022-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chenguang3312.github.io/tags/My-live/</loc>
-    <lastmod>2022-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chenguang3312.github.io/tags/DIY-Homekit/</loc>
-    <lastmod>2022-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chenguang3312.github.io/tags/linux-RT/</loc>
-    <lastmod>2022-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chenguang3312.github.io/tags/preempt/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/tags/IGH/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/tags/IOT/</loc>
+    <lastmod>2022-08-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/tags/DIY-Homekit/</loc>
+    <lastmod>2022-08-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/tags/linux-RT/</loc>
+    <lastmod>2022-08-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/tags/preempt/</loc>
+    <lastmod>2022-08-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/tags/robotics-library/</loc>
+    <lastmod>2022-08-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/tags/Dueros/</loc>
+    <lastmod>2022-08-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/tags/speech-sounds/</loc>
+    <lastmod>2022-08-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/tags/Tools/</loc>
+    <lastmod>2022-08-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/tags/Vercel/</loc>
+    <lastmod>2022-08-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/tags/C/</loc>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -468,36 +454,36 @@
 
   
   <url>
-    <loc>https://chenguang3312.github.io/categories/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2022-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://chenguang3312.github.io/categories/Ethercat/</loc>
-    <lastmod>2022-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chenguang3312.github.io/categories/Ethercat/Soem/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/categories/Technology/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/categories/Ethercat/Soem/</loc>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chenguang3312.github.io/categories/%E5%AE%9E%E6%97%B6%E5%86%85%E6%A0%B8/</loc>
-    <lastmod>2022-07-15</lastmod>
+    <lastmod>2022-08-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/categories/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2022-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
