@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chenguang3312.github.io/2022/10/10/idea-realtime/</loc>
+    
+    <lastmod>2022-10-10</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chenguang3312.github.io/2022/09/10/ubuntu18-04-realsence/</loc>
     
     <lastmod>2022-10-10</lastmod>
@@ -467,6 +474,13 @@
   
   <url>
     <loc>https://chenguang3312.github.io/tags/RealTime/</loc>
+    <lastmod>2022-10-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenguang3312.github.io/tags/realtime/</loc>
     <lastmod>2022-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
