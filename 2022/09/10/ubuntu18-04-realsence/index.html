@@ -1,0 +1,207 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ubuntu18.04_realsense | Mr.chen Blog</title><meta name="keywords" content="Robot Automation"><meta name="author" content="Mr.chen"><meta name="copyright" content="Mr.chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ubuntu18.04 ＋realsence－sdk安装[toc] 环境：   系统：ubuntu18.04 工控机：Nodka 工控机(NP-6122)1. 更新ubuntu:  sudo apt-get update &amp;&amp; sudo apt-get upgrade &amp;&amp; sudo apt-get dist-upgrade2. 下载最新的librealsense">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu18.04_realsense">
+<meta property="og:url" content="https://chenguang3312.github.io/2022/09/10/ubuntu18-04-realsence/">
+<meta property="og:site_name" content="Mr.chen Blog">
+<meta property="og:description" content="ubuntu18.04 ＋realsence－sdk安装[toc] 环境：   系统：ubuntu18.04 工控机：Nodka 工控机(NP-6122)1. 更新ubuntu:  sudo apt-get update &amp;&amp; sudo apt-get upgrade &amp;&amp; sudo apt-get dist-upgrade2. 下载最新的librealsense">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chenguang3312.github.io/covers/realsense.jpeg">
+<meta property="article:published_time" content="2022-09-10T07:17:47.000Z">
+<meta property="article:modified_time" content="2022-10-10T07:24:03.018Z">
+<meta property="article:author" content="Mr.chen">
+<meta property="article:tag" content="Robot Automation">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chenguang3312.github.io/covers/realsense.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://chenguang3312.github.io/2022/09/10/ubuntu18-04-realsence/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":false,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ubuntu18.04_realsense',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-10 15:24:03'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Mr.chen Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./tx.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/covers/realsense.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Mr.chen Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ubuntu18.04_realsense</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2022-09-10T07:17:47.000Z" title="undefined 2022-09-10 15:17:47">2022-09-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ubuntu18.04_realsense"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="ubuntu18-04-＋realsence－sdk安装"><a href="#ubuntu18-04-＋realsence－sdk安装" class="headerlink" title="ubuntu18.04 ＋realsence－sdk安装"></a>ubuntu18.04 ＋realsence－sdk安装</h3><p>[toc]</p>
+<p><strong>环境：</strong></p>
+<ul>
+<li> 系统：ubuntu18.04</li>
+<li>工控机：Nodka 工控机(NP-6122)<h4 id="1-更新ubuntu"><a href="#1-更新ubuntu" class="headerlink" title="1. 更新ubuntu:"></a>1. 更新ubuntu:</h4>  <code>sudo apt-get update &amp;&amp; sudo apt-get upgrade &amp;&amp; sudo apt-get dist-upgrade</code><h4 id="2-下载最新的librealsense-SDK"><a href="#2-下载最新的librealsense-SDK" class="headerlink" title="2. 下载最新的librealsense SDK:"></a>2. 下载最新的librealsense SDK:</h4><code>git clone https://github.com/IntelRealSense/librealsense.git</code></li>
+</ul>
+<p><strong>注意：安装时，不要将相机连在电脑上。</strong></p>
+<h4 id="3-安装必要的依赖"><a href="#3-安装必要的依赖" class="headerlink" title="3. 安装必要的依赖"></a>3. 安装必要的依赖</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/librealsense</span><br><span class="line">sudo apt-get install git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev </span><br><span class="line">sudo apt-get install libglfw3-dev</span><br></pre></td></tr></table></figure>
+<h4 id="4-安装-librealsense原文件目录下的许可脚本"><a href="#4-安装-librealsense原文件目录下的许可脚本" class="headerlink" title="4. 安装 librealsense原文件目录下的许可脚本"></a>4. 安装 librealsense原文件目录下的许可脚本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/librealsense</span><br><span class="line">sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/ </span><br><span class="line">sudo udevadm control --reload-rules &amp;&amp; udevadm trigger</span><br></pre></td></tr></table></figure>
+<h4 id="5-编译librealsense"><a href="#5-编译librealsense" class="headerlink" title="5. 编译librealsense"></a>5. 编译librealsense</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/librealsense</span><br><span class="line">mkdir build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">cmake ../</span><br><span class="line">cmake ../ -DBUILD_EXAMPLES=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h4 id="6-安装librealsense-SDK"><a href="#6-安装librealsense-SDK" class="headerlink" title="6. 安装librealsense-SDK"></a>6. 安装librealsense-SDK</h4><p><code>sudo make uninstall &amp;&amp; make clean &amp;&amp; make &amp;&amp; sudo make install</code></p>
+<h4 id="7-连接相机至电脑USB3-0接口并打开摄像头显示界面"><a href="#7-连接相机至电脑USB3-0接口并打开摄像头显示界面" class="headerlink" title="7. 连接相机至电脑USB3.0接口并打开摄像头显示界面"></a>7. 连接相机至电脑USB3.0接口并打开摄像头显示界面</h4><p><code>realsense-viewer</code><br><strong>注意：连接相机的数据线必须是USB3.0的数据线（USB口内为蓝色）</strong></p>
+<h4 id="8-在界面安装适配的相机Firmware-界面会有提示"><a href="#8-在界面安装适配的相机Firmware-界面会有提示" class="headerlink" title="8. 在界面安装适配的相机Firmware(界面会有提示)"></a>8. 在界面安装适配的相机Firmware(界面会有提示)</h4><hr>
+<h3 id="ubuntu18-04-＋librealsense2-ROS-安装"><a href="#ubuntu18-04-＋librealsense2-ROS-安装" class="headerlink" title="ubuntu18.04 ＋librealsense2-ROS　安装"></a>ubuntu18.04 ＋librealsense2-ROS　安装</h3><h4 id="1-构建ROS工作空间"><a href="#1-构建ROS工作空间" class="headerlink" title="1. 构建ROS工作空间"></a>1. 构建ROS工作空间</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p realsense_rosws/src     <span class="comment">#realsense_rows 自己命名的工程文件名，可改,本教程是在home路　　　　　　　　　　　　　　　　　　　　　　　径下建立</span></span><br><span class="line"><span class="built_in">cd</span> realsense_rosws/src           <span class="comment">#回到src文件夹路径下</span></span><br><span class="line">catkin_init_workspace            <span class="comment">#创建工作空间</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-下载realsense-ros"><a href="#2-下载realsense-ros" class="headerlink" title="2. 下载realsense-ros"></a>2. 下载realsense-ros</h4><p><code>git clone https://github.com/IntelRealSense/realsense-ros.git</code></p>
+<h4 id="3-编译安装"><a href="#3-编译安装" class="headerlink" title="3. 编译安装"></a>3. 编译安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> realsense_rosws    <span class="comment">#返回该文件目录</span></span><br><span class="line">catkin_make clean   </span><br><span class="line">catkin_make -DCATKIN_ENABLE_TESTING=False -DCMAKE_BUILD_TYPE=Release</span><br><span class="line">catkin_make install</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;source /home/robot/realsense_rosws/devel/setup.bash&quot;</span> &gt;&gt; ~/.bashrc  <span class="comment">#注意修改文件路径</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+<h4 id="4-安装rgbd-launch-包"><a href="#4-安装rgbd-launch-包" class="headerlink" title="4. 安装rgbd-launch 包"></a>4. 安装rgbd-launch 包</h4><p><code>sudo apt-get install ros-melodic-rgbd-launch</code></p>
+<h4 id="5-运行"><a href="#5-运行" class="headerlink" title="5.运行"></a>5.运行</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">roscore         <span class="comment">#新开一个终端</span></span><br><span class="line">roslaunch realsense2_camera rs_rgbd.launch  <span class="comment">#另新开一个终端</span></span><br><span class="line">rivz         <span class="comment">#另新开一个终端</span></span><br></pre></td></tr></table></figure>
+<h4 id="6-realsense-ros配置"><a href="#6-realsense-ros配置" class="headerlink" title="6. realsense-ros配置"></a>6. realsense-ros配置</h4><ul>
+<li>左上角Displays 中 Fixed Frame 选项中，下拉菜单选择 camera_link</li>
+<li>点击该框中的Add -&gt; 上方点击 By topic -&gt; /depth_registered 下的 /points 下的/PointCloud2</li>
+<li>点击该框中的Add -&gt; 上方点击 By topic -&gt; /color 下的 /image_raw 下的image</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Mr.chen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chenguang3312.github.io/2022/09/10/ubuntu18-04-realsence/">https://chenguang3312.github.io/2022/09/10/ubuntu18-04-realsence/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chenguang3312.github.io" target="_blank">Mr.chen Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/covers/realsense.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/09/27/rtai-realtime/"><img class="prev-cover" src="/covers/rtai.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">UBuntu 16.04 RTAI实时系统环境安装配置</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/15/light-usr-book/"><img class="next-cover" src="/covers/light_usr_book.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">使用说明</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Mr.chen</div><div class="author-info__description">从事机器人自动化系统集成与研发，记录开发过程中所见、所学、所感。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="/794407343" target="_blank" title="QQ：794407343"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:chenguang3312@126.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/Netmiss" target="_blank" title="闲鱼"><i class="fa fa-address-card"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ubuntu18-04-%EF%BC%8Brealsence%EF%BC%8Dsdk%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">ubuntu18.04 ＋realsence－sdk安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%9B%B4%E6%96%B0ubuntu"><span class="toc-number">1.1.</span> <span class="toc-text">1. 更新ubuntu:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%B8%8B%E8%BD%BD%E6%9C%80%E6%96%B0%E7%9A%84librealsense-SDK"><span class="toc-number">1.2.</span> <span class="toc-text">2. 下载最新的librealsense SDK:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85%E5%BF%85%E8%A6%81%E7%9A%84%E4%BE%9D%E8%B5%96"><span class="toc-number">1.3.</span> <span class="toc-text">3. 安装必要的依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85-librealsense%E5%8E%9F%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E8%AE%B8%E5%8F%AF%E8%84%9A%E6%9C%AC"><span class="toc-number">1.4.</span> <span class="toc-text">4. 安装 librealsense原文件目录下的许可脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E7%BC%96%E8%AF%91librealsense"><span class="toc-number">1.5.</span> <span class="toc-text">5. 编译librealsense</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E5%AE%89%E8%A3%85librealsense-SDK"><span class="toc-number">1.6.</span> <span class="toc-text">6. 安装librealsense-SDK</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E8%BF%9E%E6%8E%A5%E7%9B%B8%E6%9C%BA%E8%87%B3%E7%94%B5%E8%84%91USB3-0%E6%8E%A5%E5%8F%A3%E5%B9%B6%E6%89%93%E5%BC%80%E6%91%84%E5%83%8F%E5%A4%B4%E6%98%BE%E7%A4%BA%E7%95%8C%E9%9D%A2"><span class="toc-number">1.7.</span> <span class="toc-text">7. 连接相机至电脑USB3.0接口并打开摄像头显示界面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E5%9C%A8%E7%95%8C%E9%9D%A2%E5%AE%89%E8%A3%85%E9%80%82%E9%85%8D%E7%9A%84%E7%9B%B8%E6%9C%BAFirmware-%E7%95%8C%E9%9D%A2%E4%BC%9A%E6%9C%89%E6%8F%90%E7%A4%BA"><span class="toc-number">1.8.</span> <span class="toc-text">8. 在界面安装适配的相机Firmware(界面会有提示)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ubuntu18-04-%EF%BC%8Blibrealsense2-ROS-%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">ubuntu18.04 ＋librealsense2-ROS　安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%9E%84%E5%BB%BAROS%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4"><span class="toc-number">2.1.</span> <span class="toc-text">1. 构建ROS工作空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%B8%8B%E8%BD%BDrealsense-ros"><span class="toc-number">2.2.</span> <span class="toc-text">2. 下载realsense-ros</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85"><span class="toc-number">2.3.</span> <span class="toc-text">3. 编译安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85rgbd-launch-%E5%8C%85"><span class="toc-number">2.4.</span> <span class="toc-text">4. 安装rgbd-launch 包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E8%BF%90%E8%A1%8C"><span class="toc-number">2.5.</span> <span class="toc-text">5.运行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-realsense-ros%E9%85%8D%E7%BD%AE"><span class="toc-number">2.6.</span> <span class="toc-text">6. realsense-ros配置</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/09/27/rtai-realtime/" title="UBuntu 16.04 RTAI实时系统环境安装配置"><img src="/covers/rtai.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UBuntu 16.04 RTAI实时系统环境安装配置"/></a><div class="content"><a class="title" href="/2022/09/27/rtai-realtime/" title="UBuntu 16.04 RTAI实时系统环境安装配置">UBuntu 16.04 RTAI实时系统环境安装配置</a><time datetime="2022-09-27T01:16:50.000Z" title="发表于 2022-09-27 09:16:50">2022-09-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/10/ubuntu18-04-realsence/" title="ubuntu18.04_realsense"><img src="/covers/realsense.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ubuntu18.04_realsense"/></a><div class="content"><a class="title" href="/2022/09/10/ubuntu18-04-realsence/" title="ubuntu18.04_realsense">ubuntu18.04_realsense</a><time datetime="2022-09-10T07:17:47.000Z" title="发表于 2022-09-10 15:17:47">2022-09-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/15/light-usr-book/" title="使用说明"><img src="/covers/light_usr_book.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用说明"/></a><div class="content"><a class="title" href="/2022/07/15/light-usr-book/" title="使用说明">使用说明</a><time datetime="2022-07-15T14:26:52.000Z" title="发表于 2022-07-15 22:26:52">2022-07-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/15/igh-ethercat/" title="igh_ethercat"><img src="/covers/igh.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="igh_ethercat"/></a><div class="content"><a class="title" href="/2022/07/15/igh-ethercat/" title="igh_ethercat">igh_ethercat</a><time datetime="2022-07-15T09:46:33.000Z" title="发表于 2022-07-15 17:46:33">2022-07-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/14/linux-preempt/" title="linux_preempt"><img src="/covers/linux_preempt.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="linux_preempt"/></a><div class="content"><a class="title" href="/2022/07/14/linux-preempt/" title="linux_preempt">linux_preempt</a><time datetime="2022-07-14T06:13:27.000Z" title="发表于 2022-07-14 14:13:27">2022-07-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Mr.chen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '1vrkdIEeD7CRzxslOiurgIEH-gzGzoHsz',
+      appKey: 'hHzoAhpAvcUTW6FAOTHiMcy4',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
